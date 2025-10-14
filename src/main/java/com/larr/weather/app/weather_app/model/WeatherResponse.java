@@ -1,8 +1,10 @@
 package com.larr.weather.app.weather_app.model;
 
+import java.util.List;
+
 // import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+// import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -14,6 +16,5 @@ public class WeatherResponse {
     private String timezone;
     private double tzoffset;
     private String description;
-    @JsonProperty("days")
-    private Day day;
+    private List<Day> days;
 }
