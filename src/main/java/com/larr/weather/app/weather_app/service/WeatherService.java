@@ -28,8 +28,14 @@ public class WeatherService {
 
     @Cacheable(value = "weather-today", key = "#city")
     public Mono<WeatherResponse> getCurrentWeather(String city) {
-        return webClient.get().uri(uriBuilder -> uriBuilder.path("/${city}/today").queryParam("unitGroup", unit)
-                .queryParam("key", key).build()).retrieve().bodyToMono(WeatherResponse.class);
+        System.out.println("Base url: " + baseUrl);
+        String fullUri = baseUrl + city + "/today?unitGroup=" + unit + "&key=" + key;
+        System.out.println("Full request URI: " + fullUri); // Add this to verify
+
+        return webClient.get()
+                .uri(fullUri)
+                .retrieve()
+                .bodyToMono(WeatherResponse.class);
     }
 
 }
