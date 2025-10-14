@@ -4,8 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import org.apache.logging.log4j.util.Strings;
+// import org.apache.logging.log4j.util.Strings;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -13,6 +14,7 @@ import lombok.Data;
 @Data
 public class Day {
     @JsonProperty("datetime")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private double tempmax;
     private double tempmin;
@@ -22,8 +24,10 @@ public class Day {
     private double precip;
     private double windspeed;
     private double uvindex;
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime sunrise;
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime sunset;
-    private Strings description;
+    private String description;
     private List<Hour> hours;
 }

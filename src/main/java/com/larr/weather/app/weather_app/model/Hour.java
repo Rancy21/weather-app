@@ -2,6 +2,7 @@ package com.larr.weather.app.weather_app.model;
 
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
@@ -9,6 +10,7 @@ import lombok.Data;
 @Data
 public class Hour {
     @JsonProperty("datetime")
+    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime time;
     private double temp;
     private double humidity;
