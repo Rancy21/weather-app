@@ -19,7 +19,7 @@ This weather application provides current weather conditions and hourly forecast
 - **24-Hour Forecast**: Hour-by-hour weather predictions with detailed conditions
 - **Redis Caching**: Implements 60-minute cache TTL to reduce API calls and improve response times
 - **Responsive Design**: Mobile-friendly interface that adapts to all screen sizes
-- **Interactive UI**: 
+- **Interactive UI**:
   - Smooth animations and transitions
   - Loading states and error handling
   - Gradient backgrounds and hover effects
@@ -28,6 +28,7 @@ This weather application provides current weather conditions and hourly forecast
 ## 🛠️ Technology Stack
 
 ### Backend
+
 - **Spring Boot 3.5.6**: Main application framework
 - **Spring WebFlux**: Reactive web client for non-blocking API calls
 - **Spring Cache**: Caching abstraction layer
@@ -37,12 +38,14 @@ This weather application provides current weather conditions and hourly forecast
 - **Maven**: Dependency management and build tool
 
 ### Frontend
+
 - **HTML5**: Semantic markup
 - **CSS3**: Modern styling with gradients, flexbox, and grid
 - **Vanilla JavaScript**: No framework dependencies
 - **Fetch API**: Asynchronous HTTP requests
 
 ### External APIs
+
 - **Visual Crossing Weather API**: Weather data provider
 
 ## 📁 Project Structure
@@ -85,41 +88,46 @@ weather-app/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Rancy21/weather-app.git
    cd weather-app
    ```
 
 2. **Start Redis Server**
+
    ```bash
    # On Linux/Mac
    redis-server
-   
+
    # On Windows (with Redis installed)
    redis-server.exe
    ```
 
 3. **Configure API Key**
-   
+
    Update `src/main/resources/application.properties`:
+
    ```properties
    weather.api.key=YOUR_API_KEY_HERE
    ```
-   
+
    Get your free API key from [Visual Crossing Weather](https://www.visualcrossing.com/weather-api)
 
 4. **Build the project**
+
    ```bash
    ./mvnw clean install
    ```
 
 5. **Run the application**
+
    ```bash
    ./mvnw spring-boot:run
    ```
 
 6. **Access the application**
-   
+
    Open your browser and navigate to: `http://localhost:8080`
 
 ## 📡 API Endpoints
@@ -131,9 +139,11 @@ GET /api/weather-today/{city}
 ```
 
 **Parameters:**
+
 - `city` (path parameter): City name (e.g., "New York", "London", "Tokyo")
 
 **Response:**
+
 ```json
 {
   "latitude": 40.71,
@@ -163,6 +173,7 @@ GET /api/weather-today/{city}
 ```
 
 **Error Response:**
+
 ```
 HTTP 400 Bad Request
 Error: City not found or API error message
@@ -208,6 +219,7 @@ weather.api.units=metric
 ## 🧪 Testing
 
 Run the test suite:
+
 ```bash
 ./mvnw test
 ```
@@ -215,6 +227,7 @@ Run the test suite:
 ## 📦 Building for Production
 
 ### Create WAR file
+
 ```bash
 ./mvnw clean package
 ```
@@ -222,20 +235,24 @@ Run the test suite:
 The WAR file will be generated in `target/weather-app-0.0.1-SNAPSHOT.war`
 
 ### Deploy to application server
+
 Copy the WAR file to your Tomcat, JBoss, or other Java EE application server's deployment directory.
 
 ## 🔧 Troubleshooting
 
 ### Redis Connection Issues
+
 - Ensure Redis server is running: `redis-cli ping` (should return PONG)
 - Check Redis configuration in `application.properties`
 
 ### API Rate Limiting
+
 - The free tier of Visual Crossing API has rate limits
 - Redis caching helps minimize API calls
 - Consider upgrading your API plan for production use
 
 ### Build Errors
+
 - Verify Java version: `java -version` (should be 21+)
 - Clean Maven cache: `./mvnw clean`
 - Update dependencies: `./mvnw dependency:resolve`
@@ -254,7 +271,8 @@ This project is open source and available for educational purposes.
 
 ## 👤 Author
 
-**Larry CK**
+**Rancy Ontsandaga**
+
 - GitHub: [@Rancy21](https://github.com/Rancy21)
 
 ## 🙏 Acknowledgments
